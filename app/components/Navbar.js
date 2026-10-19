@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useAuth } from '../context/AuthContext';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -11,6 +12,13 @@ const links = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { isAuthenticated, user, loading, logout } = useAuth();
+
+  function handleLogout() {
+    logout();
+    router.push('/');
+  }
 
   return (
     <nav className="nav">
@@ -29,6 +37,35 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+
+          {!loading && isAuthenticated ? (
+            <>
+              <Link
+                href="/dashboard"
+                className={`nav-link${pathname === '/dashboard' ? ' active' : ''}`}
+              >
+                Dashboard
+              </Link>
+              <button type="button" className="nav-link nav-btn" onClick={handleLogout}>
+                Sign out
+              </button>
+              <span className="nav-user" title={user?.email}>
+                {user?.name?.split(' ')[0]}
+              </span>
+            </>
+          ) : !loading ? (
+            <>
+              <Link
+                href="/login"
+                className={`nav-link${pathname === '/login' ? ' active' : ''}`}
+              >
+                Sign in
+              </Link>
+              <Link href="/register" className="btn btn-primary nav-cta">
+                Register
+              </Link>
+            </>
+          ) : null}
         </div>
       </div>
     </nav>

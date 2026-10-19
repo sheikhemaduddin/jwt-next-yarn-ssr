@@ -22,9 +22,9 @@ const features = [
     description: 'Modular React UI with shared layout, nav, and interactive widgets.',
   },
   {
-    icon: '🌙',
-    title: 'Polished design',
-    description: 'Dark theme, gradients, and responsive layout out of the box.',
+    icon: '🔐',
+    title: 'JWT authentication',
+    description: 'Register and sign in with HS256 tokens, protected routes, and session restore.',
   },
 ];
 
@@ -38,29 +38,29 @@ export default function HomePage() {
           <span>Ship in the browser.</span>
         </h1>
         <p>
-          Nova is a fully client-rendered Next.js app — no custom server, no API routes,
-          and no server-side rendering at runtime. Just a clean SPA experience.
+          Nova is a fully client-rendered Next.js app with JWT authentication —
+          register, sign in, and access a protected dashboard entirely in the browser.
         </p>
         <div className="hero-actions">
-          <Link href="/projects" className="btn btn-primary">
-            View projects
+          <Link href="/register" className="btn btn-primary">
+            Get started
           </Link>
-          <Link href="/about" className="btn btn-secondary">
-            Learn more
+          <Link href="/login" className="btn btn-secondary">
+            Sign in
           </Link>
         </div>
 
         <div className="stats-row">
           <div className="stat">
-            <div className="stat-value">0</div>
-            <div className="stat-label">Server endpoints</div>
+            <div className="stat-value">JWT</div>
+            <div className="stat-label">HS256 sessions</div>
           </div>
           <div className="stat">
             <div className="stat-value">100%</div>
             <div className="stat-label">Client-side</div>
           </div>
           <div className="stat">
-            <div className="stat-value">3</div>
+            <div className="stat-value">6</div>
             <div className="stat-label">App routes</div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import './globals.css';
+import Providers from './components/Providers';
 
 export const metadata = {
   title: 'Nova — Client SPA',
-  description: 'A Next.js client-side single-page application.',
+  description: 'A Next.js client-side single-page application with JWT auth.',
 };
 
 export default function RootLayout({ children }) {
@@ -16,7 +17,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
