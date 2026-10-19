@@ -8,23 +8,23 @@ import FeatureCard from './components/FeatureCard';
 const features = [
   {
     icon: '⚡',
-    title: 'Instant navigation',
-    description: 'Route changes happen on the client with no full page reloads.',
-  },
-  {
-    icon: '🎯',
-    title: 'Static export',
-    description: 'Pre-built HTML and JS served as a lightweight single-page app.',
-  },
-  {
-    icon: '🧩',
-    title: 'Component-driven',
-    description: 'Modular React UI with shared layout, nav, and interactive widgets.',
+    title: 'SSR + App Router',
+    description: 'One Next.js Node process serves pages, API routes, and realtime sockets.',
   },
   {
     icon: '🔐',
     title: 'JWT authentication',
-    description: 'Register and sign in with HS256 tokens, protected routes, and session restore.',
+    description: 'Register and sign in via API routes — tokens verified on the server.',
+  },
+  {
+    icon: '📡',
+    title: 'Socket.IO live room',
+    description: 'Presence, activity, and chat on the same origin after you authenticate.',
+  },
+  {
+    icon: '🧩',
+    title: 'Same Nova UI',
+    description: 'Familiar layout, dashboard, and dark theme — now backed by SSR.',
   },
 ];
 
@@ -32,14 +32,14 @@ export default function HomePage() {
   return (
     <AppShell>
       <section className="hero container">
-        <p className="eyebrow">Client-side · Single-page app</p>
+        <p className="eyebrow">SSR · JWT · Socket.IO</p>
         <h1>
           Build fast.<br />
-          <span>Ship in the browser.</span>
+          <span>Ship as one app.</span>
         </h1>
         <p>
-          Nova is a fully client-rendered Next.js app with JWT authentication —
-          register, sign in, and access a protected dashboard entirely in the browser.
+          Nova is a single Next.js server with JWT auth and Socket.IO — register, sign in,
+          and join the live dashboard without a second process.
         </p>
         <div className="hero-actions">
           <Link href="/register" className="btn btn-primary">
@@ -53,15 +53,15 @@ export default function HomePage() {
         <div className="stats-row">
           <div className="stat">
             <div className="stat-value">JWT</div>
-            <div className="stat-label">HS256 sessions</div>
+            <div className="stat-label">Server-issued</div>
           </div>
           <div className="stat">
-            <div className="stat-value">100%</div>
-            <div className="stat-label">Client-side</div>
+            <div className="stat-value">1</div>
+            <div className="stat-label">Node process</div>
           </div>
           <div className="stat">
-            <div className="stat-value">6</div>
-            <div className="stat-label">App routes</div>
+            <div className="stat-value">WS</div>
+            <div className="stat-label">Socket.IO</div>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ export default function HomePage() {
       <section className="section container">
         <div className="section-header">
           <h2>Why this setup</h2>
-          <p>Everything you see is rendered and navigated in the browser.</p>
+          <p>Auth APIs and realtime sockets share the same SSR server as the UI.</p>
         </div>
         <div className="grid">
           {features.map((feature) => (

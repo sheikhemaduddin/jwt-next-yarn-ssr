@@ -9,8 +9,8 @@ export default function AppShell({ children }) {
       <main>{children}</main>
       <footer className="footer">
         <div className="container footer-inner">
-          <span>Nova · Client-side SPA</span>
-          <span>Built with Next.js static export</span>
+          <span>Nova · SSR + Socket.IO</span>
+          <span>JWT auth on one Node process</span>
         </div>
       </footer>
     </div>

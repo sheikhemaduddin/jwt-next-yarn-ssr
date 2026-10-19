@@ -15,22 +15,21 @@ export default function AboutPage() {
         <header className="page-header">
           <h1>About Nova</h1>
           <p>
-            A demonstration of Next.js configured as a pure client-side SPA using static
-            export — ideal for dashboards, marketing sites, and apps that talk to external APIs.
+            A Next.js SSR app with server-issued JWT auth and Socket.IO on one custom
+            <code> server.js</code> entry — same UI, one deployable process.
           </p>
         </header>
 
         <div className="prose">
           <p>
-            This project deliberately avoids custom servers, server components with data fetching,
-            API routes, and middleware. At build time, pages are exported to static files; at
-            runtime, React handles all interactivity and routing in the browser.
+            Login and register hit API routes that sign HS256 JWTs. The dashboard opens a
+            Socket.IO connection on the same origin, authenticated with that token for
+            presence, activity, and chat.
           </p>
           <h2>Architecture</h2>
           <p>
-            The App Router still provides file-based routing and shared layouts, but every page
-            is a client component. Navigation uses Next.js Link for fast, prefetch-enabled
-            transitions without full reloads.
+            Next handles pages and <code>/api/auth/*</code>. Socket.IO attaches to the same
+            HTTP server. Cloudways Entry File should be <code>server.js</code>.
           </p>
         </div>
 

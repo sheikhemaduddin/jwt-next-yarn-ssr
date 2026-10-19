@@ -2,6 +2,7 @@
 
 import AppShell from '../components/AppShell';
 import ProtectedRoute from '../components/ProtectedRoute';
+import RealtimePanel from '../components/RealtimePanel';
 import { useAuth } from '../context/AuthContext';
 
 function DashboardContent() {
@@ -14,8 +15,8 @@ function DashboardContent() {
         <p className="eyebrow">Protected</p>
         <h1>Welcome, {user?.name}</h1>
         <p>
-          This page is gated by JWT verification. Your token is checked on load; an invalid or
-          expired token sends you back to sign in.
+          This page is gated by JWT verification. After you sign in, Socket.IO connects on the
+          same server using that token for presence, activity, and chat.
         </p>
       </header>
 
@@ -37,12 +38,14 @@ function DashboardContent() {
 
         <article className="card">
           <h3>Session actions</h3>
-          <p>Clear the token from local storage and return to public routes.</p>
+          <p>Clear the token from local storage and disconnect realtime.</p>
           <button type="button" className="btn btn-secondary" style={{ marginTop: '1rem' }} onClick={logout}>
             Sign out
           </button>
         </article>
       </div>
+
+      <RealtimePanel />
     </div>
   );
 }

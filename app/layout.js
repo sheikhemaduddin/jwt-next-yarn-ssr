@@ -2,8 +2,8 @@ import './globals.css';
 import Providers from './components/Providers';
 
 export const metadata = {
-  title: 'Nova — Client SPA',
-  description: 'A Next.js client-side single-page application with JWT auth.',
+  title: 'Nova — SSR + Socket.IO',
+  description: 'Next.js SSR app with JWT authentication and Socket.IO.',
 };
 
 export default function RootLayout({ children }) {
