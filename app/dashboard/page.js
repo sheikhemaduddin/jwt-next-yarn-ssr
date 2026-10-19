@@ -1,6 +1,7 @@
 'use client';
 
 import AppShell from '../components/AppShell';
+import NewsFeed from '../components/NewsFeed';
 import ProtectedRoute from '../components/ProtectedRoute';
 import RealtimePanel from '../components/RealtimePanel';
 import { useAuth } from '../context/AuthContext';
@@ -45,6 +46,7 @@ function DashboardContent() {
         </article>
       </div>
 
+      <NewsFeed />
       <RealtimePanel />
     </div>
   );
